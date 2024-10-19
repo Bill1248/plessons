@@ -1,6 +1,6 @@
 #input
-text = "Hi! This    is your developer."
-#text = input("enter text:")
+#text = "Hi! This    is your developer."
+text = input("enter text:")
 
 #1. count words
 last_symbol = ''
