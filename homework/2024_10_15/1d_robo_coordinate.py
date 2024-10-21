@@ -16,15 +16,32 @@ while error_roboX:
     else:
         error_roboX = False
 
-x = 1
-print("\n")
 
-while x<= lenght:
-    symbol = "-"
-    if roboX == x:
-        symbol = "R"
-    print(symbol, end = "")
+
+while True:
+    # #################### DRAWING THE MAP ###############
+    x = 1
+    print("\n")
+    while x<= lenght:
+        symbol = "-"
+        if roboX == x:
+            symbol = "R"
+        print(symbol, end = "")
+        
+        x += 1 
+
+    print("\n")
+    # ####################################################
+
+    # ################### CONTROLS #######################
+    direction = input("Enter direction (a/d) > ")
+    if direction == "a":
+        roboX -= 1
+        if roboX <= 0: 
+            roboX = lenght
+    if direction == "d":
+        roboX += 1
+        if roboX > lenght:
+            roboX = 1
     
-    x += 1 
-
-print("\n")
+    
