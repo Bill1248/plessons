@@ -32,9 +32,10 @@ while True:
     if health == 0:
         break
     # #################### DRAWING THE MAP ###############
-    x = 1
+    #x = 1
     print("\n")
-    while x<= lenght:
+    #while x<= lenght:
+    for x in range(1, lenght + 1):
         symbol = "-"
         if bomb1X == x:
             symbol = "B"
