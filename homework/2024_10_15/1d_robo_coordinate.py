@@ -1,11 +1,15 @@
+from random import randint
+from os import system
 
 error_lenght = True
 error_roboX = True
-lenght = 40
+lenght = 80
 roboX = 1
+health = 102
+
 while error_lenght:
-    lenght = int(input("Enter lenght (not negative, max 40):"))
-    if lenght <= 0 or lenght > 40:
+    lenght = int(input("Enter lenght (not negative, max 80):"))
+    if lenght <= 0 or lenght > 80:
         print("wrong lenght")
     else:
         error_lenght = False
@@ -17,24 +21,55 @@ while error_roboX:
         error_roboX = False
 
 
+bomb1X = randint(1, lenght)
+bomb2X = randint(1, lenght)
+
+aid_kit1X = randint(1, lenght)
+aid_kit2X = randint(1, lenght)
 
 while True:
+    system("clear")
+    if health == 0:
+        break
     # #################### DRAWING THE MAP ###############
     x = 1
     print("\n")
     while x<= lenght:
         symbol = "-"
+        if bomb1X == x:
+            symbol = "B"
+        if bomb2X == x:
+            symbol = "B"
+        if aid_kit1X == x:
+            symbol = "A"
+        if aid_kit2X == x:
+            symbol = "A"
         if roboX == x:
             symbol = "R"
         print(symbol, end = "")
-        
         x += 1 
 
     print("\n")
     # ####################################################
-
+    health -= 2
+    if roboX == bomb1X:
+        bomb1X = -1
+        health -= 20
+    if roboX == bomb2X:
+        bomb2X = -1
+        health -= 20
+    if roboX == aid_kit1X:
+        aid_kit1X = -1
+        health += 20
+    if roboX == aid_kit2X:
+        aid_kit2X = -1
+        health += 20
+    if health < 0:
+        health = 0
+    print("Health :", f"{health}%")
+    print("\n")
     # ################### CONTROLS #######################
-    direction = input("Enter direction (a/d) > ")
+    direction = input("Enter direction (a/d/x) > ")
     if direction == "a":
         roboX -= 1
         if roboX <= 0: 
@@ -43,5 +78,15 @@ while True:
         roboX += 1
         if roboX > lenght:
             roboX = 1
+    if direction == "x":
+        break
+# end main loop
+
+system("clear")
+print("\n")
+if health == 0:
+    print("****** GAME OVER! The robot is de-energized! ******\n")
+else:
+    print("Thank your for plaing!!\n")
     
     
