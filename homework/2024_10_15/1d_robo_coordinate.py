@@ -48,7 +48,7 @@ while True:
         if roboX == x:
             symbol = "R"
         print(symbol, end = "")
-        x += 1 
+        #x += 1 
 
     print("\n")
     # ####################################################
