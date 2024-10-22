@@ -55,15 +55,19 @@ while True:
     if roboX == bomb1X:
         bomb1X = -1
         health -= 20
+        print("BOOOOOOOM!!!")
     if roboX == bomb2X:
         bomb2X = -1
         health -= 20
+        print("BOOOOOOOM!!!")
     if roboX == aid_kit1X:
         aid_kit1X = -1
         health += 20
+        print("The robot is recharged")
     if roboX == aid_kit2X:
         aid_kit2X = -1
         health += 20
+        print("The robot is recharged")
     if health < 0:
         health = 0
     print("Health :", f"{health}%")
