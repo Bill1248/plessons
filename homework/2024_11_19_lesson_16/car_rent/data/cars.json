@@ -1,0 +1,1 @@
+[{"sid": 101, "brand": "BMW", "model": "series 3", "year": 2000, "rented": false, "period": 0, "rent_rate": 35}, {"sid": 102, "brand": "BMW", "model": "series 5", "year": 2010, "rented": false, "period": 0, "rent_rate": 75}, {"sid": 103, "brand": "BMW", "model": "series 7", "year": 2020, "rented": false, "period": 0, "rent_rate": 100}]

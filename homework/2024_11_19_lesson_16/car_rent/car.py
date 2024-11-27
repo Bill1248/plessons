@@ -1,3 +1,4 @@
+import json
 
 def createCar(sid, brand, model, year, rent_rate):
     car = {}
@@ -18,19 +19,43 @@ def findCarBySid(cars, sid):
             break
     return car
 
+def updateRent(cars, sid, rent_rate):
+    result = -2
+    for i in range(len(cars)):
+        if cars[i]["sid"] == sid:
+            cars[i]['rent_rate'] = rent_rate
+            result = 1
+            break
+    return result
+
+def deleteCar(cars, sid):
+    result = -2
+    for i in range(len(cars)):
+        if cars[i]["sid"] == sid:
+            cars.pop(i)
+            result = 1
+            break
+    return result
+
 def rentCar(cars, sid, period):
+    result = -2
     for i in range(len(cars)):
         if cars[i]["sid"] == sid:
             cars[i]['rented'] = True
             cars[i]['period'] = period
+            result = 1
             break
+    return result
 
 def returnFromRent(cars, sid):
+    result = -2
     for i in range(len(cars)):
         if cars[i]["sid"] == sid:
             cars[i]['rented'] = False
             cars[i]['period'] = 0
+            result = 1
             break
+    return result
 
 def printCarInfo (car, is_admin):
     print("#"*50)
@@ -50,3 +75,19 @@ def printCarListInfo(cars, is_admin):
             if c["rented"]:
                 continue
         printCarInfo(c, is_admin)
+
+
+
+######################## JSON #####################
+
+def saveCarData (cars) :
+    file = open("data/cars.json", "w")
+    file.write(json.dumps(cars))
+    file.close()
+
+def loadCarData():
+    try:
+        with open('data/cars.json', 'r') as f:
+            return json.load(f)
+    except:
+        return None
