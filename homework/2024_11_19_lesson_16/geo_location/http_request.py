@@ -36,3 +36,5 @@ if res.code == 200:
         print("Address not found.")
 else:
     print(f"Error request (code: {res.code})")
+
+conn.close
